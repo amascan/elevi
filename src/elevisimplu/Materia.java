@@ -14,7 +14,6 @@ public class Materia {
     public Materia(String linie) {
         String[] materie = linie.split(": ");
         numeM = materie[0];
-        //    System.out.println(numeM);
         String[] a = materie[1].split(",");
         note = new ArrayList<>();
         int sumanote = 0;
@@ -27,18 +26,18 @@ public class Materia {
         System.out.println(media);
     }
 
-    public static Integer medie(ArrayList note) {
+    public Double medie(ArrayList note) {
         int tmp = 0;
         for (int i = 0; i < note.size(); i++) {
             tmp = tmp + (int)note.get(i);
 
         }
-        return tmp / note.size();
+        return (double)(tmp) / (double)note.size();
     }
 
         @Override
         public String toString () {
             return numeM = numeM + '\'' +
-                    ", note=" + note +;
+                    ", note=" + note + " Media=" + medie((ArrayList) note) ;
         }
     }

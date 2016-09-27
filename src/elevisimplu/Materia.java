@@ -16,17 +16,12 @@ public class Materia {
         numeM = materie[0];
         String[] a = materie[1].split(",");
         note = new ArrayList<>();
-        int sumanote = 0;
-        Double media;
         for (int i = 0; i < a.length; i++) {
             note.add(Integer.parseInt(a[i]));
-            sumanote = sumanote + Integer.parseInt(a[i]);
         }
-        media = (double) sumanote / a.length;
-        System.out.println(media);
     }
 
-    public Double medie(ArrayList note) {
+    public Double medie() {
         int tmp = 0;
         for (int i = 0; i < note.size(); i++) {
             tmp = tmp + (int)note.get(i);
@@ -38,6 +33,6 @@ public class Materia {
         @Override
         public String toString () {
             return numeM = numeM + '\'' +
-                    ", note=" + note + " Media=" + medie((ArrayList) note) ;
+                    ", note=" + note + ", Media=" + medie() ;
         }
     }

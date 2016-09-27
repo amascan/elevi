@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Adrian on 20.09.2016.
  */
 public class FileRead {
-    public static String read(String tmp) {
+    public static List<String> read(String tmp) {
         BufferedReader bufIn = null;
         List<String> templist = new ArrayList<String>();
         try {
@@ -18,9 +18,7 @@ public class FileRead {
 
                 String e;
                 while ((e = bufIn.readLine()) != null) {
-              //      System.out.println(e);
                     templist.add(e);
-             //       System.out.println(templist.size());
                 }
             } catch (IOException var11) {
                 System.err.println(var11);
@@ -33,7 +31,7 @@ public class FileRead {
                 }
             }
 
-            return (String)templist.get(0);
+            return templist;
         }
 
     }

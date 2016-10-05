@@ -10,16 +10,27 @@ public class Main {
     public static void main(String[] args) {
         Map<String, Double> map = new HashMap<>();
         List<Elev> elevi = new ArrayList<>();
-        for(String element: FileRead.read("elevi.csv")) {
-            Elev a = new Elev(element);
-            elevi.add(a);
-            map.put(a.nume, a.materii);
-            System.out.println(a);
+        double mediamat = 0;
+        double mediarom = 0;
+        double mediasp = 0;
+
+        for(String linie: FileRead.read("elevi.csv")) {
+            Elev elev = new Elev(linie);
+            elevi.add(elev);
+
+            mediamat = mediamat + elev.materii.get(0).media;
+            mediarom = mediarom + elev.materii.get(1).media;
+            mediasp = mediasp + elev.materii.get(2).media;
+
+            map.put(elev.materii.get(0).numeM, mediamat/ elevi.size());
+            map.put(elev.materii.get(1).numeM, mediarom/ elevi.size());
+            map.put(elev.materii.get(2).numeM, mediasp/ elevi.size());
+
+            System.out.println(elev);
         }
 
-
         for (String key : map.keySet()) {
-            System.out.println(key + " " + map.get(key));
+            System.out.println("Media generala " + key + "\t" + map.get(key));
         }
     }
 

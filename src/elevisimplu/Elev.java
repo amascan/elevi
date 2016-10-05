@@ -13,9 +13,6 @@ public class Elev {
 
         public Elev(String temp) {
 
-          //      String temp = FileRead.read("elevi.csv");
-
-
                 String[] element = temp.split("; ");
 
                 this.nume = element[1];

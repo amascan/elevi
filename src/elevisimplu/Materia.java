@@ -9,6 +9,7 @@ public class Materia {
 
     String numeM;
     List<Integer> note;
+    double media;
 
 
     public Materia(String linie) {
@@ -19,20 +20,16 @@ public class Materia {
         for (int i = 0; i < a.length; i++) {
             note.add(Integer.parseInt(a[i]));
         }
-    }
-
-    public Double medie() {
         int tmp = 0;
         for (int i = 0; i < note.size(); i++) {
-            tmp = tmp + (int)note.get(i);
-
+            tmp = tmp + note.get(i);
         }
-        return (double)(tmp) / (double)note.size();
+        media = (double)(tmp) / (double)note.size();
     }
 
-        @Override
-        public String toString () {
-            return numeM = numeM + '\'' +
-                    ", note=" + note + ", Media=" + medie() ;
+    @Override
+    public String toString () {
+       return numeM = numeM + '\'' +
+          ", note=" + note + ", Media=" + media ;
         }
     }
